@@ -1,0 +1,93 @@
+.header{
+    &-nav{
+        background: rgba(20, 20, 20, 0.5);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+        }
+        .close{
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: black;
+            display: none;
+            position: absolute;
+            font-size: 30px;
+            font-weight: 100;
+            top: 15px;
+            left: 15px;
+            @include media(800){
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .burger{
+           width: 40px;
+           height: 40px;
+           background: white;
+           color: black;
+           font-size: 40px;
+           line-height: 32px;
+           display: none;
+           @include media(800){
+                display: flex;
+                justify-content: center;
+                
+           } 
+        }
+        &-list{
+            display: flex;
+            gap: 30px;
+            @include media(800){
+                position: fixed;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                background: black;
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                visibility: hidden;
+                transform: translateY(-110%);
+                transition: 400ms;
+                &.active{
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+            }
+            a{
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 18px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &.router-link-active{
+                    color: white;
+                    &::after{
+                        content: '';
+                        width: 15px;
+                        height: 15px;
+                        background: #149A03;
+                        border-radius: 15px;
+                        display: block;
+                        position: absolute;
+                        bottom: 15px;
+                        @include media(800){
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
